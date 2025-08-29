@@ -1,3 +1,16 @@
+import asyncio
+import sys
+
+if sys.platform.startswith("win"):
+    # Needed for Windows + Python 3.8–3.10
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
+# For cases where no loop exists (like in Streamlit ScriptRunner)
+try:
+    asyncio.get_running_loop()
+except RuntimeError:
+    asyncio.set_event_loop(asyncio.new_event_loop())
+
 import streamlit as st
 from PyPDF2 import PdfReader
 import faiss 

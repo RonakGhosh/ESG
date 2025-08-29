@@ -1,6 +1,6 @@
 import streamlit as st
 from PyPDF2 import PdfReader
-import faiss
+import faiss 
 from langchain_community.vectorstores import FAISS
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 from langchain.text_splitter import RecursiveCharacterTextSplitter

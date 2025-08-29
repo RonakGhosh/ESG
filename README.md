@@ -1,7 +1,7 @@
 # 🌍 ESG Assessment Agent (LangGraph + Gemini + Streamlit)
 
 An interactive **ESG (Environmental, Social, Governance) assessment agent** built using **LangGraph, Gemini 1.5 Flash, FAISS, and Streamlit**.  
-The app can:  
+The app can:     
 ✅ Take **direct user input** for ESG evaluation.  
 ✅ Optionally use **RAG (Retrieval-Augmented Generation)** with company-provided PDFs.  
 ✅ Output results in **attractive paragraphs**, plus provide **downloadable reports**.  

@@ -12,7 +12,7 @@ build/
 
 # --- Virtual Environment ---
 .venv/
-env/
+env/ 
 venv/
 ENV/
 .venv.bak/

@@ -258,7 +258,7 @@ def radar_chart(scores: Dict[str, Any]):
     angles = np.linspace(0, 2 * np.pi, len(labels), endpoint=False).tolist()
     angles += angles[:1]
 
-    fig, ax = plt.subplots(figsize=(5, 5), subplot_kw=dict(polar=True))
+    fig, ax = plt.subplots(figsize=(3, 3), subplot_kw=dict(polar=True))
     ax.fill(angles, vals, alpha=0.25)
     ax.plot(angles, vals, linewidth=2)
     ax.set_xticks(angles[:-1])
@@ -355,22 +355,24 @@ def main():
             st.metric("Governance", g_.get("Score", "N/A"))
             st.caption(g_.get("Notes", ""))
 
-        st.pyplot(radar_chart(esg))
+        st.pyplot(radar_chart(esg), use_container_width=False)
     else:
         st.write("N/A")
-    # Generate PDF
+
+        # Generate PDF
     company_name = query.split()[0]   # or ask user via text_input
     file_name = generate_pdf(report, company_name)
 
+    # Download button
+    with open(file_name, "rb") as f:
+        st.download_button(
+            label="📥 Download ESG Report (PDF)",
+            data=f.read(),
+            file_name=file_name,
+            mime="application/pdf",
+        )
 
-    # Downloads
-    st.download_button(
-    label="📥 Download ESG Report (PDF)",
-    data=open(file_name, "rb").read(),
-    file_name=file_name,
-    mime="application/pdf",
-)
-
+    
 
 if __name__ == "__main__":
     main()

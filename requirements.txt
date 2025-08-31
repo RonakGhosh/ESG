@@ -12,3 +12,4 @@ openpyxl
 matplotlib
 numpy
 pandas
+google-generativeai
